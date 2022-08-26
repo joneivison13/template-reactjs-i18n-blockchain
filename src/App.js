@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Provider from "./context";
+import Routes from "./routes";
+import GlobalStyle from "./styles/globals";
+import { useTranslation, I18nextProvider } from "react-i18next";
+import I18next from "./i18n";
+import Home from "./Pages/Home";
+
+// import { Container } from './styles';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <I18nextProvider i18n={I18next}>
+      <Provider>
+        {/* <Routes /> */}
+        <Home />
+        <GlobalStyle />
+      </Provider>
+    </I18nextProvider>
   );
 }
 
